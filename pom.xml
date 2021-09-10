@@ -87,7 +87,6 @@
             <version>${bonigarcia.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!--   DI   -->
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -99,8 +98,12 @@
             <artifactId>cucumber-guice</artifactId>
             <version>1.2.4</version>
         </dependency>
-
-
+        <!--   KATALON TESTOPS   -->
+        <dependency>
+            <groupId>com.katalon</groupId>
+            <artifactId>testops-testng</artifactId>
+            <version>1.1.2</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
