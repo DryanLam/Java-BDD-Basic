@@ -13,11 +13,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 @ScenarioScoped
 public class Page {
-    public static WebDriver driver = DriverManager.getDriver();
+    protected WebDriver driver = DriverManager.getDriver();
 
-    public WebDriverWait wait = new WebDriverWait(driver, Timeout.SYNCHRONIZATION_TIME);
+    protected WebDriverWait wait = new WebDriverWait(driver, Timeout.SYNCHRONIZATION_TIME);
 
-    public Page() {
+    protected Page() {
         PageFactory.initElements(driver, this);
     }
 
@@ -25,12 +25,12 @@ public class Page {
         return (String) System.getProperty("siteUrl");
     }
 
-    public void scrollIntoView(WebElement element) {
+    private void scrollIntoView(WebElement element) {
         executeJS("arguments[0].scrollIntoView(true)", element);
     }
 
     public void executeJS(Object... value) {
-        JavascriptExecutor executor = (JavascriptExecutor) DriverManager.getDriver();
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         if (value.length < 2) {
             executor.executeScript("return " + value[0] + ";");
         } else if (value.length == 2) {
@@ -65,12 +65,12 @@ public class Page {
         }
     }
 
-    public void closeBrowser() {
-        driver.quit();
-    }
-
     public String pageTitle() {
         waitForPageLoad();
         return driver.getTitle();
+    }
+
+    public void closeBrowser() {
+        DriverManager.closeBrowser();
     }
 }

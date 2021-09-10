@@ -1,9 +1,7 @@
 package com.auto.bdd.pages;
 
-import com.auto.bdd.utils.DriverManager;
 import com.auto.bdd.utils.Timeout;
 import cucumber.runtime.java.guice.ScenarioScoped;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,7 +14,7 @@ public class HomePage extends Page{
     private WebElement btnAppointment;
 
     public void openHomePage(){
-        driver.get(getBaseUrl());
+        driver.navigate().to(getBaseUrl());
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Timeout.MEDIUM_TIME, TimeUnit.SECONDS);
     }
