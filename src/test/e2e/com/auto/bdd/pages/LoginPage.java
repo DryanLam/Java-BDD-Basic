@@ -1,8 +1,10 @@
 package com.auto.bdd.pages;
 
+import cucumber.runtime.java.guice.ScenarioScoped;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@ScenarioScoped
 public class LoginPage extends Page {
     @FindBy(id = "txt-username")
     private WebElement txtUsername;

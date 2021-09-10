@@ -2,6 +2,7 @@ package com.auto.bdd.pages;
 
 import com.auto.bdd.utils.DriverManager;
 import com.auto.bdd.utils.Timeout;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@ScenarioScoped
 public class Page {
     public static WebDriver driver = DriverManager.getDriver();
 
@@ -36,26 +38,12 @@ public class Page {
         }
     }
 
-
     public void click(WebElement element) throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollIntoView(element);
         element.click();
         waitForPageLoad();
     }
-
-//    public void waitForPageLoad() throws InterruptedException {
-//        this.pause(Timeout.SHORT_TIME);
-//        ExpectedCondition<Boolean> pageLoadCompleted = new ExpectedCondition<Boolean>() {
-//            @Override
-//            public Boolean apply(WebDriver _driver) {
-//                return ((JavascriptExecutor) _driver).executeScript("return document.readyState")
-//                        .toString()
-//                        .equalsIgnoreCase("complete");
-//            }
-//        };
-//        wait.until(pageLoadCompleted);
-//    }
 
     public boolean waitForPageLoad() {
         this.pause(Timeout.SHORT_TIME);

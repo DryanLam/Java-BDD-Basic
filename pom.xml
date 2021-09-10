@@ -87,6 +87,20 @@
             <version>${bonigarcia.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!--   DI   -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-guice</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+
+
     </dependencies>
     <build>
         <plugins>
