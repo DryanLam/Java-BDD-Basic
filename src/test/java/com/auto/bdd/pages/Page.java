@@ -2,7 +2,7 @@ package com.auto.bdd.pages;
 
 import com.auto.bdd.utils.DriverManager;
 import com.auto.bdd.utils.Timeout;
-import cucumber.runtime.java.guice.ScenarioScoped;
+import io.cucumber.guice.ScenarioScoped;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

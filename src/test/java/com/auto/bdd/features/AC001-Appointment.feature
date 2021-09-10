@@ -1,6 +1,7 @@
 @Regression
 Feature: Automation Demo project
 
+  @AC-0001
   Scenario: Create A New Apppointment
     Given Navigate to home page
     When Click to Appointment button on home page

@@ -1,6 +1,7 @@
 package com.auto.bdd.pages;
 
-import cucumber.runtime.java.guice.ScenarioScoped;
+
+import io.cucumber.guice.ScenarioScoped;
 
 @ScenarioScoped
 public class AppointmentPage extends Page {
