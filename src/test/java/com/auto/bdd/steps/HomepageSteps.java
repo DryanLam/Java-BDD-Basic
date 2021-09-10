@@ -11,7 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-public class Homepage_Steps {
+public class HomepageSteps {
 
     @Inject HomePage homePage;
     @Inject LoginPage loginPage;

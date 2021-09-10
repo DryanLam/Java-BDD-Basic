@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         tags = {"@Regression"},
-        features = {"src/test/e2e/com/auto/bdd/features"},
+        features = {"src/test/java/com/auto/bdd/features"},
         plugin = {
                 "json:target/result.json"
         },

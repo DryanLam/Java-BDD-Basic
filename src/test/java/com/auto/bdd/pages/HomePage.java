@@ -16,7 +16,6 @@ public class HomePage extends Page{
     private WebElement btnAppointment;
 
     public void openHomePage(){
-        WebDriver driver = DriverManager.getDriver();
         driver.get(getBaseUrl());
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Timeout.MEDIUM_TIME, TimeUnit.SECONDS);
