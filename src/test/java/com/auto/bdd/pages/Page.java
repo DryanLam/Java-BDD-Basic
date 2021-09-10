@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 @ScenarioScoped
 public class Page {
-    public static WebDriver driver = DriverManager.getDriver();
+    protected WebDriver driver = DriverManager.getDriver();
 
-    public WebDriverWait wait = new WebDriverWait(driver, Timeout.SYNCHRONIZATION_TIME);
+    protected WebDriverWait wait = new WebDriverWait(driver, Timeout.SYNCHRONIZATION_TIME);
 
     public Page() {
         PageFactory.initElements(driver, this);
@@ -25,7 +25,7 @@ public class Page {
         return (String) System.getProperty("siteUrl");
     }
 
-    public void scrollIntoView(WebElement element) {
+    private void scrollIntoView(WebElement element) {
         executeJS("arguments[0].scrollIntoView(true)", element);
     }
 
@@ -66,7 +66,7 @@ public class Page {
     }
 
     public void closeBrowser() {
-        driver.quit();
+        DriverManager.closeBrowser();
     }
 
     public String pageTitle() {

@@ -1,20 +1,28 @@
 package com.auto.bdd.utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManager {
-    protected static WebDriver driver = null;
+    private static DriverManager INSTANCE;
+    private static WebDriver driver;
+    private DriverManager() {
+    }
 
-    public static WebDriver getDriver() {
-        if (null != driver) {
+    public static WebDriver getDriver(){
+        if (null == INSTANCE) {
+            INSTANCE = new DriverManager();
+            driver = new DriverFactory().getDriver();
             return driver;
         }
-
-        // Just implementing Firefox
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
         return driver;
+    }
+
+    public static void closeBrowser(){
+        driver.quit();
+        dispose();
+    }
+
+    private static void dispose(){
+        INSTANCE = null;
     }
 }
